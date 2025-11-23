@@ -1,0 +1,9 @@
+version: '3'
+services:
+  springboot-afrilangues-app:
+    container_name: springboot-afrilangues-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"

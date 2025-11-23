@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demande de Réinitialisation de Mot de Passe</title>
+    <style type="text/css">
+        /* Reset styles */
+        body,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        /* Main container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        /* Header */
+        .header {
+            background-color: #ff6600;
+            color: #ffffff;
+            padding: 25px 0;
+            text-align: center;
+        }
+        /* Content */
+        .content {
+            padding: 20px;
+        }
+        /* Button */
+        .button {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #ff6600;
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 16px;
+        }
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Social icons */
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            margin: 0 5px;
+        }
+        /* Custom styles */
+        .custom-img {
+            width: 230px;
+            height: auto;
+        }
+        .custom-email-fleche {
+            width: 100%;
+            max-width: 50px;
+            height: auto;
+        }
+        .custom-logo-afrilangues {
+            width: 3%;
+            height: auto;
+            min-width: 20px;
+        }
+        .x-platform-icon {
+            width: 14px !important;
+            height: 14px !important;
+            margin-bottom: 6px !important;
+        }
+        @media screen and (max-width: 600px) {
+            h1,
+            h2 {
+                font-size: 20px !important;
+            }
+            .custom-img {
+                width: 150px;
+            }
+            .custom-email-fleche {
+                max-width: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <table width="100%" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="10%" align="left">
+                    <img
+                            src="https://apis.africalangues.com/api/mediaObject/download/66e9c0329e7b240aeb2d0a11"
+                            alt=""
+                            class="custom-email-fleche"
+                    />
+                </td>
+                <td width="80%" align="center">
+                    <h1>DEMANDE DE RÉINITIALISATION DE MOT DE PASSE</h1>
+                </td>
+                <td width="10%" align="right">
+                    <img
+                            src="https://apis.africalangues.com/api/mediaObject/download/66e9b6769e7b240aeb2d09f8"
+                            alt=""
+                            class="custom-email-fleche"
+                    />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content">
+        <table width="100%" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align="center">
+                    <img
+                            src="https://apis.africalangues.com/api/mediaObject/download/66effd899e7b240aeb2d0a85"
+                            alt=""
+                            class="custom-img"
+                            style="margin-right: 20px"
+                    />
+                    <img
+                            src="https://apis.africalangues.com/api/mediaObject/download/66effd369e7b240aeb2d0a7c"
+                            alt=""
+                            class="custom-img"
+                    />
+                </td>
+            </tr>
+        </table>
+
+        <p style="margin-top: 20px" th:text="${'Bonjour ' + name+', '}"></p>
+        <p>
+            Vous recevez cet e-mail suite à votre demande de réinitialisation de
+            mot de passe. Merci de cliquer sur le bouton ci-dessous pour choisir
+            un nouveau mot de passe.
+        </p>
+
+        <table width="100%" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align="center" style="padding: 30px 0">
+                    <a th:href="${'https://africalangues.com/password/reset/'+token}" class="button">JE RÉINITIALISE MON MOT DE PASSE</a>
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            Si vous ne souhaitez pas réinitialiser votre mot de passe, vous pouvez
+            ignorer cet e-mail et rien ne changera.
+        </p>
+        <p>N'hésitez pas à nous contacter si vous avez besoin d'aide.</p>
+        <p style="margin-top: 20px">L'équipe d'Afrilangues</p>
+    </div>
+
+    <div class="footer">
+        <div class="social-icons" style="margin-bottom: 20px">
+            <a href="https://www.facebook.com/afrilangues/?locale=fr_FR"
+            ><img
+                    src="https://apis.africalangues.com/api/mediaObject/download/66e9bff09e7b240aeb2d0a07"
+                    alt="Facebook"
+            /></a>
+            <a href="https://www.instagram.com/afrilangues/"
+            ><img
+                    src="https://apis.africalangues.com/api/mediaObject/download/66e9c0079e7b240aeb2d0a09"
+                    alt="Instagram"
+            /></a>
+            <a href="https://fr.linkedin.com/company/afrilangues"
+            ><img
+                    src="https://apis.africalangues.com/api/mediaObject/download/66e9c0159e7b240aeb2d0a0d"
+                    alt="LinkedIn"
+            /></a>
+            <a href="https://x.com/afrilangues"
+            ><img
+                    class="x-platform-icon"
+                    src="https://apis.africalangues.com/api/mediaObject/download/66e9c09a9e7b240aeb2d0a15"
+                    alt="Twitter"
+            /></a>
+            <a href="https://www.youtube.com/channel/UCeB4UPA38S2hscm54e9gvhg"
+            ><img
+                    src="https://apis.africalangues.com/api/mediaObject/download/66e9c0b59e7b240aeb2d0a3a"
+                    alt="YouTube"
+            /></a>
+        </div>
+        <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0" />
+        <p>
+            <img
+                    src="https://apis.africalangues.com/api/mediaObject/download/66e9c0249e7b240aeb2d0a0f"
+                    alt="Afrilangues"
+                    class="custom-logo-afrilangues"
+            />
+        </p>
+        <p style="margin-top: 10px">
+            AFRILANGES SAS - 3, Avenue Victoria, 75004 Paris | Tél : +336 58 48 53
+            13 | contact@afrilangues.fr | www.afrilangues.com<br />
+            SIRET : 883 723 397 00013
+        </p>
+    </div>
+</div>
+</body>
+</html>

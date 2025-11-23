@@ -1,0 +1,57 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  # Maven options
+  MAVEN_OPTS: "-Dmaven.test.skip=true"
+  # These must be defined in GitLab CI/CD variables
+  HEROKU_APP_NAME: $HEROKU_APP_NAME
+  HEROKU_API_KEY: $HEROKU_API_KEY
+
+# ------------------ BUILD JOB (Maven) ------------------
+build:
+  stage: build
+  image: maven:3.9.6-eclipse-temurin-17
+  cache:
+    key: maven-cache
+    paths:
+      - .m2/repository
+  script:
+    - echo "Building Java project with Maven..."
+    - mvn -B -DskipTests clean package
+  artifacts:
+    paths:
+      - target/*.jar
+    expire_in: 1 week
+  only:
+    - main
+
+# ------------------ DEPLOY JOB (Heroku) ------------------
+deploy:
+  stage: deploy
+  image: debian:stable-slim
+
+  # Install tools + Heroku CLI in this job container
+  before_script:
+    - apt-get update -y
+    - apt-get install -y curl git
+    - curl https://cli-assets.heroku.com/install.sh | sh
+
+  script:
+    - echo "Heroku CLI version:"
+    - heroku --version
+
+    # Configure Heroku 
+    - echo "Setting Heroku git remote..."
+    - heroku git:remote -a "$HEROKU_APP_NAME"
+
+    - echo "Git remotes after heroku git:remote:"
+    - git remote -v
+
+    # Push the commit 
+    - echo "Pushing current commit to Heroku..."
+    - git push heroku HEAD:main -f
+
+  only:
+    - main
