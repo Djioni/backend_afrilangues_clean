@@ -68,6 +68,7 @@ public class WebSecurityConfig {
                         "/swagger-ui/**",
                         "/api/pdf/export",
                         "/api/captcha/submit",
+                        "/api/captcha/site-key",
                         "/api/mediaObject/download/**",
                         "/api/language/member",
                         "/api/password/forgot/mail",
