@@ -19,6 +19,12 @@ public class CaptchaController {
 
     public final CaptchaService captchaService;
 
+    @GetMapping("/site-key")
+    public ResponseEntity<Map<String, String>> getSiteKey() {
+        String siteKey = captchaService.getSiteKey();
+        return ResponseEntity.ok(Map.of("siteKey", siteKey));
+    }
+
     @PostMapping("/submit")
     public ResponseEntity<Map<String, Object>> submitForm(@RequestBody CaptchaDTO captchaDTO) {
         boolean captchaVerified = captchaService.verifyCaptcha(captchaDTO.getRecaptchaToken());

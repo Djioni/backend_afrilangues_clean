@@ -19,12 +19,19 @@ public class CaptchaService {
     @Value("${google.recaptcha.secret}")
     private String recaptchaSecret;
 
+    @Value("${google.recaptcha.site}")
+    private String recaptchaSiteKey;
+
     @Value("${google.recaptcha.verify.url}")
     private String recaptchaVerifyUrl;
 
     private final RestTemplate restTemplate = new RestTemplate();
 
 
+
+    public String getSiteKey() {
+        return recaptchaSiteKey;
+    }
 
     public boolean verifyCaptcha(String recaptchaToken) {
         if (recaptchaToken == null || recaptchaToken.isEmpty()) {
