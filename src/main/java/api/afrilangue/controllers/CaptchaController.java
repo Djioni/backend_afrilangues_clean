@@ -11,7 +11,6 @@ import java.util.Map;
 /**
  * @author Ibrahima Diallo <iibdiallo@gmail.com>
  */
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/captcha")
 @RequiredArgsConstructor
